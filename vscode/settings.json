@@ -1,0 +1,34 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "python.pythonPath": "python3",
+    "terminal.integrated.rendererType": "dom",
+    "git.autofetch": true,
+
+    "[ruby]": {
+        "editor.tabSize": 2,
+        "editor.fontFamily": "Fira Code",
+        "editor.fontLigatures": true
+    },
+    "window.zoomLevel": 0,
+    "editor.rulers": [
+        80
+    ],
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "Gruvbox Dark Soft",
+        
+    "workbench.colorCustomizations": {
+        "sideBar.background": "#f2e5bc",
+        "sideBar.foreground": "#3c3836",
+        "sideBarTitle.foreground": "#3c3836",
+        "sideBarSectionHeader.foreground": "#3c3836",
+        "tab.inactiveBackground": "#f2e5bc",
+        "tab.inactiveForeground": "#3c3836",
+        "tab.activeBackground": "#3c3836",
+        "tab.activeForeground": "#f2e5bc",
+        "tab.border": "#3c3836",
+        "activityBar.background": "#f2e5bc",
+        "activityBar.foreground": "#3c3836",
+        "editorGroupHeader.tabsBackground": "#f2e5bc",
+        "panel.border": "#f2e5bc"
+    }
+}
