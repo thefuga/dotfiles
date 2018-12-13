@@ -19,6 +19,13 @@
     "workbench.colorCustomizations": {
         "sideBar.background": "#f2e5bc",
         "sideBar.foreground": "#3c3836",
+        "selection.background": "#cc241d",
+        "editor.focusedStackFrameHighlightBackground": "#d79921",
+        "editorSuggestWidget.border": "#f2e5bc",
+        "editorSuggestWidget.selectedBackground": "#5c534f",
+        "list.activeSelectionBackground": "#3c3836",
+        "list.inactiveSelectionForeground": "#3c3836",
+        "list.inactiveSelectionBackground": "#c7ae7b",
         "sideBarTitle.foreground": "#3c3836",
         "sideBarSectionHeader.foreground": "#3c3836",
         "tab.inactiveBackground": "#f2e5bc",
