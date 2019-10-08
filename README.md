@@ -1,2 +1,2 @@
-* My dotfiles
-** The root here represents `~/`.
+# My dotfiles
+The root here represents `~/`.
