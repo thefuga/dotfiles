@@ -38,6 +38,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 " Plug 'jiangmiao/auto-pairs' - Replaced by coc.pairs
 Plug 'christoomey/vim-tmux-runner'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 filetype plugin indent on  " required
