@@ -5,7 +5,7 @@
 export ZSH="/home/melhorenvio/.oh-my-zsh"
 
 # Set FZF config
-export FZF_DEFAULT_OPTS="--height 30% --layout=reverse --border --preview 'bat {} --color=always --theme=base16'"
+export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview 'bat {} --color=always --theme=base16'"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -92,6 +92,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# Function to search files and open in new vim tabs
+vimgrep() {
+    vim -p $(grep -Rl $1 | fzf -m) 
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -103,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 alias mev2="~/git-repositories/melhor-envio-v2"
 alias lzg="lazygit"
 alias lzd="lazydocker"
-
+alias fzfs="vimgrep"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
