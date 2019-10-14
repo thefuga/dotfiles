@@ -97,6 +97,11 @@ vimgrep() {
     vim -p $(grep -Rl $1 | fzf -m) 
 }
 
+# Function to open firefox with given url
+firefoxurl() {
+    firefox $1
+}
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -109,6 +114,7 @@ alias mev2="~/git-repositories/melhor-envio-v2"
 alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fzfs="vimgrep"
+alias ff="firefoxurl"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
