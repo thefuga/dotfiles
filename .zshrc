@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/melhorenvio/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Set FZF config
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border --preview 'bat {} --color=always --theme=base16'"
@@ -71,7 +71,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitgo zsh-syntax-highlighting)
+plugins=(git gitgo zsh-syntax-highlighting z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,6 +110,9 @@ firefoxurl() {
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# My Aliases
+alias btedf='coproc bluetoothctl;echo connect 5C:C6:E9:1E:A9:61 >&p'
+alias curlweather='curl v2.wttr.in'
 alias mev2="~/git-repositories/melhor-envio-v2"
 alias lzg="lazygit"
 alias lzd="lazydocker"
@@ -118,10 +121,16 @@ alias ff="firefoxurl"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# LARAVEL PATH
-export LARAVELPATH=$HOME/.composer/vendor/bin
-export PATH=$LARAVELPATH:$PATH
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
 
-# GO PATH
-export GOPATH=$HOME/go
-export PATH=$GOPATH:$PATH
+# Run tmux
+if [[ $DISPLAY ]]; then
+# If not running interactively, do not do anything
+   [[ $- != *i* ]] && return
+   [[ -z "$TMUX" ]] && exec tmux
+fi
+
+## PATHS
+
