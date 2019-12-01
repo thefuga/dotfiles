@@ -42,16 +42,16 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
 
 # borders
-# hide_edge_borders both
-# default_border pixel 1
-# default_floating_border pixel 1
+hide_edge_borders both
+default_border pixel 1
+default_floating_border pixel 1
 
 # title
-# title_align left
+title_align left
 
 # orientation
-# default_orientation horizontal
-# workspace_layout default
+default_orientation horizontal
+workspace_layout default
 
 #  _              _     _           _
 # | | _____ _   _| |__ (_)_ __   __| |___
@@ -270,4 +270,4 @@ exec --no-startup-id "sleep 2s && kalu"
 exec --no-startup-id "/usr/bin/redshift-gtk"
 exec --no-startup-id polybar main_bar
 exec --no-startup-id nitrogen --restore &
-exec --no-startup-id rfkill unblock bluetooth
+# exec --no-startup-id rfkill unblock bluetooth
