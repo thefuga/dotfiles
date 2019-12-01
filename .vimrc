@@ -70,6 +70,8 @@ autocmd FileType ruby setlocal softtabstop=2
 autocmd FileType php setlocal shiftwidth=4
 autocmd FileType php setlocal softtabstop=4
 
+autocmd FileType go setlocal shiftwidth=4
+autocmd FileType go setlocal tabstop=4
 
 " Nerdtree config
 map <C-\> :NERDTreeToggle<CR>
@@ -130,3 +132,7 @@ function! XTermPasteBegin()
 endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" Fold
+set foldmethod=manual
+" set nofoldenable
