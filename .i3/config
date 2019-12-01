@@ -1,0 +1,273 @@
+#  _ _____                    __ _
+# (_)___ /    ___ ___  _ __  / _(_) __ _
+# | | |_ \   / __/ _ \| '_ \| |_| |/ _` |
+# | |___) | | (_| (_) | | | |  _| | (_| |
+# |_|____/   \___\___/|_| |_|_| |_|\__, |
+#                                  |___/
+# see http://i3wm.org/docs/userguide.html
+
+#                  _       _     _
+# __   ____ _ _ __(_) __ _| |__ | | ___  ___
+# \ \ / / _` | '__| |/ _` | '_ \| |/ _ \/ __|
+#  \ V / (_| | |  | | (_| | |_) | |  __/\__ \
+#   \_/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $font FuraCode Nerd Font 10
+font pango: $font
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Base16 Gruvbox dark, pale
+# Author: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+set $bg-color            #2f343f
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676e7d
+set $urgent-bg-color     #e53935
+set $indicator-color     #a0a0a0
+
+# set window colors
+#                       border             background         text                 indicator
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+
+# borders
+# hide_edge_borders both
+# default_border pixel 1
+# default_floating_border pixel 1
+
+# title
+# title_align left
+
+# orientation
+# default_orientation horizontal
+# workspace_layout default
+
+#  _              _     _           _
+# | | _____ _   _| |__ (_)_ __   __| |___
+# | |/ / _ \ | | | '_ \| | '_ \ / _` / __|
+# |   <  __/ |_| | |_) | | | | | (_| \__ \
+# |_|\_\___|\__, |_.__/|_|_| |_|\__,_|___/
+#           |___/
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# Rofi
+## Open aplications applications
+bindsym $mod+d exec rofi -show drun
+## Open binaries
+bindsym $mod+Shift+d exec rofi -show run
+# switch between windows oppened windwos
+bindsym $mod+Tab exec rofi -show window
+bindsym Mod1+Tab exec rofi -show window
+
+# change focus
+bindsym $mod+$left  focus left
+bindsym $mod+$down  focus down
+bindsym $mod+$up    focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+v split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+# bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod1+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod1+minus scratchpad show
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# lock
+# bindsym $mod+Shift+x exec i3lock --color 000000
+bindsym $mod+shift+x exec betterlockscreen -l dim
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+# resize
+# ------
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym $left  resize shrink width  10 px or 10 ppt
+  bindsym $down  resize grow   height 10 px or 10 ppt
+  bindsym $up    resize shrink height 10 px or 10 ppt
+  bindsym $right resize grow   width  10 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym Left  resize shrink width  10 px or 10 ppt
+  bindsym Down  resize grow   height 10 px or 10 ppt
+  bindsym Up    resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow   width  10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+#  _
+# | |__   __ _ _ __
+# | '_ \ / _` | '__|
+# | |_) | (_| | |
+# |_.__/ \__,_|_|
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#    status_command i3status
+#    font pango: $font 
+#
+#	colors {
+#        background $bg-color
+#        separator #757575
+#        #                  border             background         text
+#        focused_workspace  $bg-color          $bg-color          $text-color
+#        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#    }
+#}
+
+# floating windows
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Kalu"] floating enable
+
+## Multimedia Keys
+
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+
+# granular volume control
+bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+
+# mute
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#bindsym XF86AudioPlay exec mocp --toggle-pause
+#bindsym XF86AudioPause exec mocp --toggle-pause
+#bindsym XF86AudioStop exec mocp --togle-pause
+#bindsym XF86AudioNext exec mocp --next
+#bindsym XF86AudioPrev exec mocp --previous
+
+bindsym $mod+F5 exec mocp --toggle-pause
+bindsym $mod+F6 exec mocp --stop
+bindsym $mod+F7 exec mocp --previous
+bindsym $mod+F8 exec mocp --next
+
+# App shortcuts
+bindsym $mod+n exec "/usr/bin/dolphin"
+
+# Redirect sound to headphones
+bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
+
+
+
+
+
+# Autostart apps
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id "compton -cC"
+exec --no-startup-id nm-applet
+exec --no-startup-id "nitrogen --restore"
+exec --no-startup-id "sleep 2s && kalu"
+exec --no-startup-id "/usr/bin/redshift-gtk"
+exec --no-startup-id polybar main_bar
+exec --no-startup-id nitrogen --restore &
+exec --no-startup-id rfkill unblock bluetooth
