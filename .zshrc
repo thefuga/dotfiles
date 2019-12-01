@@ -115,6 +115,10 @@ alias lzg="lazygit"
 alias lzd="lazydocker"
 alias fzfs="vimgrep"
 alias ff="firefoxurl"
+alias bee='$GOPATH/bin/bee'
+alias dep='$GOPATH/bin/dep'
+alias mongoup="sudo service mongod start"
+alias mongodown="sudo service mongod stop"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
