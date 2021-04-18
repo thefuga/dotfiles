@@ -61,7 +61,7 @@ workspace_layout default
 #           |___/
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,7 +144,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # lock
 # bindsym $mod+Shift+x exec i3lock --color 000000
-bindsym $mod+shift+x exec betterlockscreen -l dim
+bindsym $mod+shift+x exec --no-startup-id blurlock
 
 # switch to workspace
 bindsym $mod+1 workspace number 1
@@ -221,6 +221,24 @@ mode "resize" {
 # floating windows
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Kalu"] floating enable
+# for_window [class="^Steam$" title="^Friends$"] floating enable
+# for_window [class="^Steam$" title="Steam - News"] floating enable
+# for_window [class="^Steam$" title=".* - Chat"] floating enable
+# for_window [class="^Steam$" title="^Settings$"] floating enable
+# for_window [class="^Steam$" title=".* - event started"] floating enable
+# for_window [class="^Steam$" title=".* CD key"] floating enable
+# for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+# for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+# for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+# for_window [title="^Steam Keyboard$"] floating enable
+
+for_window [class="^Steam$" title="Friends List"] resize shrink width 380px
+# gaps
+for_window [class=".*"] border pixel 0
+gaps inner 10
+smart_gaps on
+
+# gaps outer -2
 
 ## Multimedia Keys
 
@@ -257,17 +275,17 @@ bindsym $mod+n exec "/usr/bin/dolphin"
 # Redirect sound to headphones
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
-
-
-
-
 # Autostart apps
+exec --no-startup-id "xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "compton -cC"
-exec --no-startup-id nm-applet
 exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id "sleep 2s && kalu"
-exec --no-startup-id "/usr/bin/redshift-gtk"
 exec --no-startup-id polybar main_bar
+exec --no-startup-id nm-applet
+exec --no-startup-id "/usr/bin/redshift-gtk"
+exec --no-startup-id volumeicon
+exec --no-startup-id blueman-tray
+exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nitrogen --restore &
+# exec --no-startup-id "sleep 2s && kalu"
 # exec --no-startup-id rfkill unblock bluetooth

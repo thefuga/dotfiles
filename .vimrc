@@ -27,6 +27,10 @@ Plugin 'chriskempson/base16-vim'
 
 Plugin 'mattn/emmet-vim'
 
+Plugin 'ivy/vim-ginkgo'
+
+Plugin 'stephpy/vim-php-cs-fixer'
+
 "All of your Plugins must be added before the following line
 call vundle#end() " required
 
@@ -39,6 +43,7 @@ Plug 'tpope/vim-commentary'
 " Plug 'jiangmiao/auto-pairs' - Replaced by coc.pairs
 Plug 'christoomey/vim-tmux-runner'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim/killersheep'
 call plug#end()
 
 filetype plugin indent on  " required
@@ -54,13 +59,17 @@ filetype plugin indent on  " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 """"
+" Coc extensions
+let g:coc_global_extensions = get(g:, 'coc_global_extensions', ['coc-snippets', 'coc-pairs', 'coc-phpls', 'coc-eslint']) 
+""""
+
 syntax on
 
-
 let base16colorspace=256 
-colorscheme base16-onedark
+colorscheme base16-gruvbox-dark-medium
+
 set colorcolumn=81
-highlight ColorColumn ctermbg=magenta
+highlight ColorColumn ctermbg=red
 set softtabstop=4
 set bs=2
 
@@ -69,9 +78,25 @@ autocmd FileType ruby setlocal softtabstop=2
 
 autocmd FileType php setlocal shiftwidth=4
 autocmd FileType php setlocal softtabstop=4
+autocmd FileType php setlocal tabstop=4
+autocmd FileType php setlocal expandtab
 
+autocmd FileType json setlocal shiftwidth=4
+autocmd FileType json setlocal softtabstop=4
+autocmd FileType json setlocal tabstop=4
+autocmd FileType json setlocal expandtab
+
+autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript setlocal softtabstop=2
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal expandtab
+
+" Go configs
 autocmd FileType go setlocal shiftwidth=4
 autocmd FileType go setlocal tabstop=4
+" run goimports on save
+let g:go_fmt_command = "goimports" 
+
 
 " Nerdtree config
 map <C-\> :NERDTreeToggle<CR>
@@ -87,7 +112,7 @@ let g:powerline_loaded = 1
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='onedark'
+" let g:airline_theme='dracula'
 
 " Line number
 " :set number
@@ -111,27 +136,27 @@ autocmd VimResized * :wincmd =
 " autocmd FileType html,css EmmetInstall
 
 " Proper indentation when pasting code
-function! WrapForTmux(s)
-    if !exists('$TMUX')
-	return a:s
-    endif
+" function! WrapForTmux(s)
+"     if !exists('$TMUX')
+" 	return a:s
+"     endif
 
-    let tmux_start = "\<Esc>Ptmux;"
-    let tmux_end = "\<Esc>\\"
+"     let tmux_start = "\<Esc>Ptmux;"
+"     let tmux_end = "\<Esc>\\"
 
-    return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
-endfunction
+"     return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+" endfunction
 
-let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+" let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+" let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
-function! XTermPasteBegin()
-    set pastetoggle=<Esc>[201~
-    set paste
-    return ""
-endfunction
+" function! XTermPasteBegin()
+"     set pastetoggle=<Esc>[201~
+"     set paste
+"     return ""
+" endfunction
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+" inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " Fold
 set foldmethod=manual

@@ -28,7 +28,7 @@ my_color14	= ${xrdb:color14}
 my_color15	= ${xrdb:color15}
 
 [bar/main_bar]
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:eDP1}
 
 bottom = false
 ;width = 90%
@@ -101,7 +101,6 @@ tray-background = ${colors.my_background}
 ;format-suffix = "  "
 ;format-prefix-foreground = ${colors.foreground-alt}
 ;exec = python ~/.config/polybar/weather.py
-
 
 ;[module/mpd]
 ;type = internal/mpd
@@ -391,8 +390,6 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-
-; 
 ; [module/xkeyboard]
 ; type = internal/xkeyboard
 ; blacklist-0 = num lock
