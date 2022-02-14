@@ -3,14 +3,15 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+# env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+  # TERM: xterm-256color
+  # TERM: screen-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -86,7 +87,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: FuraCode Nerd Font
+    # family: Iosevka SS05
+    family: Fira Code
+    style: light
+#foo
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -305,7 +309,7 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
+  hints:
     # URL launcher
     #
     # This program is executed when clicking on a text which is recognized as a URL.

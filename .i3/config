@@ -276,16 +276,14 @@ bindsym $mod+n exec "/usr/bin/dolphin"
 bindsym $mod+m exec "/usr/local/bin/switch-audio-port"
 
 # Autostart apps
-exec --no-startup-id "xrandr --output eDP1 --primary --mode 1366x768 --pos 277x1080 --rotate normal --output DP1 --off --output HDMI1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off"
+exec --no-startup-id "xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x1080 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id "compton -cC"
 exec --no-startup-id "nitrogen --restore"
-exec --no-startup-id polybar main_bar
+exec --no-startup-id "~/.config/polybar/shapes/launch.sh"
 exec --no-startup-id nm-applet
 exec --no-startup-id "/usr/bin/redshift-gtk"
 exec --no-startup-id volumeicon
 exec --no-startup-id blueman-tray
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id nitrogen --restore &
-# exec --no-startup-id "sleep 2s && kalu"
-# exec --no-startup-id rfkill unblock bluetooth
